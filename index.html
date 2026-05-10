@@ -6,27 +6,67 @@
   <title>Happy Birthday My Love ❤️</title>
   <style> 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: black; overflow-x: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; text-align: center; width: 100vw; height: 100vh; }
     
+    body { 
+      background: black; 
+      overflow: hidden; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      color: white; 
+      text-align: center; 
+      width: 100vw; 
+      height: 100vh; 
+    }
+
+    /* MAGICAL GLOW BACKGROUND */
+    #magical-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, #2b0008 0%, #000000 70%);
+      z-index: 0;
+      animation: pulseGlow 8s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
     /* BACKGROUND HEARTS LAYER */
     #heart-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
 
     /* SCREEN FIXES */
-    .screen { display: none; min-height: 100vh; width: 100%; justify-content: center; align-items: center; flex-direction: column; padding: 20px; position: absolute; top: 0; left: 0; background: black; z-index: 5; }
+    .screen { display: none; min-height: 100vh; width: 100%; justify-content: center; align-items: center; flex-direction: column; padding: 20px; position: absolute; top: 0; left: 0; z-index: 5; background: transparent; }
     .active { display: flex; }
     
-    /* INPUT BOX FIX - Ensuring visibility on mobile */
-    input { padding: 15px; width: 280px; border: none; border-radius: 12px; outline: none; text-align: center; font-size: 16px; margin-bottom: 20px; background: white !important; color: #333; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); -webkit-appearance: none; }
+    /* INPUT BOX FIX - Ensuring white visibility */
+    input { 
+      padding: 15px; 
+      width: 280px; 
+      border: 2px solid #ff4d6d; 
+      border-radius: 12px; 
+      outline: none; 
+      text-align: center; 
+      font-size: 16px; 
+      margin-bottom: 20px; 
+      background: white !important; 
+      color: #333 !important; 
+      box-shadow: 0 0 20px rgba(255, 77, 109, 0.4);
+      -webkit-appearance: none; 
+    }
+
     button { padding: 14px 35px; border: none; border-radius: 30px; background: #ff4d6d; color: white; font-size: 16px; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px #ff4d6d; font-weight: bold; z-index: 100; }
     
     /* STORY SECTION */
-    .story-header { color: #ff4d6d; font-size: 22px; margin-bottom: 15px; text-shadow: 0 0 10px rgba(255, 77, 109, 0.5); }
-    .message { font-size: 20px; margin-bottom: 20px; opacity: 0; transition: opacity 1s; max-width: 90%; color: #ffd6e0; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+    .story-header { color: #ff4d6d; font-size: 22px; margin-bottom: 15px; text-shadow: 0 0 15px #ff4d6d; }
+    .message { font-size: 20px; margin-bottom: 20px; opacity: 0; transition: opacity 1s; max-width: 90%; color: #ffd6e0; min-height: 60px; display: flex; align-items: center; justify-content: center; text-shadow: 0 0 10px pink; }
     .show { opacity: 1; }
-    .story-img { width: 85%; max-width: 280px; height: 40vh; object-fit: cover; border-radius: 20px; border: 4px solid #ff4d6d; box-shadow: 0 0 20px pink; opacity: 0; transition: opacity 0.8s; }
+    .story-img { width: 85%; max-width: 280px; height: 40vh; object-fit: cover; border-radius: 20px; border: 4px solid #ff4d6d; box-shadow: 0 0 30px #ff4d6d; opacity: 0; transition: opacity 0.8s; }
     
     /* LETTER BOX */
-    .letter-box { width: 95%; max-width: 500px; font-size: 17px; line-height: 1.8; overflow-y: auto; max-height: 85vh; background: rgba(20, 20, 20, 0.95); backdrop-filter: blur(10px); padding: 30px; border-radius: 25px; text-align: left; border: 1px solid #ff4d6d; scrollbar-width: none; }
+    .letter-box { width: 95%; max-width: 500px; font-size: 17px; line-height: 1.8; overflow-y: auto; max-height: 85vh; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(10px); padding: 30px; border-radius: 25px; text-align: left; border: 1px solid #ff4d6d; scrollbar-width: none; position: relative; z-index: 10; }
     .letter-box::-webkit-scrollbar { display: none; }
     .propose-img { width: 100%; border-radius: 15px; margin: 25px 0; border: 2px solid #ff4d6d; box-shadow: 0 0 15px #ff4d6d; }
 
@@ -34,7 +74,7 @@
     #finalLoveName { width: 80%; max-width: 250px; max-height: 35vh; object-fit: contain; display: none; border-radius: 15px; margin: 20px auto; border: 3px solid white; box-shadow: 0 0 25px #ff4d6d; }
     
     /* ANIMATED HEARTS */
-    .heart { position: absolute; top: -10%; color: #ff4d6d; animation: float linear forwards; z-index: 2; }
+    .heart { position: absolute; top: -10%; animation: float linear forwards; z-index: 2; text-shadow: 0 0 5px white; }
     @keyframes float { to { transform: translateY(110vh) rotate(360deg); } }
     
     .glow-text { font-size: 40px; color: #ff4d6d; text-shadow: 0 0 20px #ff4d6d; }
@@ -45,10 +85,11 @@
 </head>
 <body>
 
+  <div id="magical-bg"></div>
   <div id="heart-container"></div>
 
   <div id="login" class="screen active">
-    <h1 style="margin-bottom: 25px; font-size: 28px;">🔐 Unlock My Heart ❤️</h1>
+    <h1 style="margin-bottom: 25px; font-size: 28px; text-shadow: 0 0 10px #ff4d6d;">🔐 Unlock My Heart ❤️</h1>
     <input type="password" id="pass" placeholder="Enter password..." autocomplete="off">
     <button onclick="checkPass()">Open ❤️</button>
   </div>
@@ -70,23 +111,13 @@
       Sometimes I feel like it wasn’t me… it was destiny… it was God bringing us together ✨<br><br>
       Before you came into my life, love was never something I cared about…<br><br>
       But now… life without you feels incomplete 💖<br><br>
-      Sometimes I sit quietly and wonder…<br><br>
-      What would I be… who would I be… if you never came into my life?<br><br>
-      There are moments I feel I’m not perfect for you…<br><br>
-      That maybe… I don’t deserve someone like you…<br><br>
-      But then my heart reminds me…<br><br>
-      Love is not about perfection…<br><br>
-      It’s about understanding… holding on… and choosing each other every single day ❤️<br><br>
-      This distance… it hurts sometimes…<br><br>
-      But it also makes us stronger…<br><br>
-      It builds trust, belief, and a love that distance can never break 💞<br><br>
-      I love you in ways I can’t even explain…<br><br>
-      More than words… more than actions… more than anything ❤️<br><br>
-      I’m really sorry… for the times my words hurt you…<br><br>
-      Those moments were never from my heart… just from situations…<br><br>
-      But my heart… it has always been yours 😔<br><br>
-      I miss you… in ways silence can’t express…<br><br>
-      And I’m waiting… for the day I can finally be with you… not in words… but in reality 🫂<br><br>
+      Sometimes I sit quietly and wonder… what would I be… who would I be… if you never came into my life?<br><br>
+      There are moments I feel I’m not perfect for you… that maybe… I don’t deserve someone like you…<br><br>
+      But then my heart reminds me… love is not about perfection… it’s about understanding… holding on… and choosing each other every single day ❤️<br><br>
+      This distance… it hurts sometimes… but it also makes us stronger… it builds trust, belief, and a love that distance can never break 💞<br><br>
+      I love you in ways I can’t even explain… more than words… more than actions… more than anything ❤️<br><br>
+      I’m really sorry… for the times my words hurt you… those moments were never from my heart… just from situations… but my heart… it has always been yours 😔<br><br>
+      I miss you… in ways silence can’t express… and I’m waiting… for the day I can finally be with you… not in words… but in reality 🫂<br><br>
       Happy Birthday, my Chinnoda…<br><br>
       My love… my peace… my forever 🎂❤️
       
@@ -124,22 +155,26 @@
       const container = document.getElementById('heart-container');
       const h = document.createElement("div");
       h.className = "heart";
-      h.innerHTML = ["💖", "❤️", "✨", "💕"][Math.floor(Math.random() * 4)];
+      const hearts = ["💖", "❤️", "✨", "💕", "🌸"];
+      h.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
       h.style.left = (Math.random() * 100) + "vw";
-      h.style.fontSize = (isExplosion ? (20 + Math.random() * 20) : (10 + Math.random() * 20)) + "px";
-      const duration = isExplosion ? (1.5 + Math.random() * 2) : (4 + Math.random() * 5);
+      h.style.color = isExplosion ? "#fff" : "#ff4d6d";
+      h.style.fontSize = (isExplosion ? (25 + Math.random() * 25) : (10 + Math.random() * 25)) + "px";
+      const duration = isExplosion ? (1.5 + Math.random() * 2) : (5 + Math.random() * 6);
       h.style.animationDuration = duration + "s";
       container.appendChild(h);
       setTimeout(() => h.remove(), duration * 1000);
     }
-    setInterval(() => createHeart(), 400);
+    
+    // Constant magical hearts
+    setInterval(() => createHeart(), 350);
 
     function checkPass() {
       const val = document.getElementById("pass").value;
       if (val.toLowerCase() === password.toLowerCase()) {
         document.getElementById("login").classList.remove("active");
         document.getElementById("story").classList.add("active");
-        document.getElementById("music").play().catch(() => console.log("Audio play failed"));
+        document.getElementById("music").play().catch(() => {});
         startStory();
       } else { alert("Wrong Password! Hint: The combined name 😜"); }
     }
@@ -183,7 +218,12 @@
       const fMsg = document.getElementById("finalMsg");
       fMsg.innerHTML = "Happy Birthday Abbai! 🎂<br>Sharmi + Tara = Shatara ❤️";
       fMsg.classList.add("show");
-      for (let j = 0; j < 50; j++) { setTimeout(() => createHeart(true), j * 60); }
+      
+      // Explosion effect
+      for (let j = 0; j < 60; j++) { 
+        setTimeout(() => createHeart(true), j * 40); 
+      }
+      
       setTimeout(() => {
         document.getElementById("surprise").classList.remove("active");
         document.getElementById("names").classList.add("active");
