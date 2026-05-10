@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love ❤️</title>
+  <style> 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: black; overflow: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; text-align: center; width: 100vw; height: 100vh; }
+    
+    .screen { display: none; height: 100vh; width: 100%; justify-content: center; align-items: center; flex-direction: column; padding: 20px; position: absolute; top: 0; left: 0; }
+    .active { display: flex; }
+    
+    input { padding: 12px; width: 260px; border: none; border-radius: 10px; outline: none; text-align: center; font-size: 16px; margin-bottom: 15px; background: rgba(255, 255, 255, 0.9); color: #333; }
+    button { padding: 12px 30px; border: none; border-radius: 30px; background: #ff4d6d; color: white; font-size: 16px; cursor: pointer; transition: 0.3s; box-shadow: 0 0 15px #ff4d6d; z-index: 100; font-weight: bold; }
+    button:hover { transform: scale(1.1); background: #ff758f; }
+    
+    .message { font-size: 24px; margin-top: 20px; opacity: 0; transition: opacity 1.5s; max-width: 90%; line-height: 1.5; color: #ffd6e0; text-shadow: 0 0 10px rgba(255, 77, 109, 0.5); }
+    .show { opacity: 1; }
+    
+    .story-img { width: 85%; max-width: 300px; height: 380px; object-fit: cover; border-radius: 20px; margin-top: 20px; box-shadow: 0 0 30px pink; display: none; border: 4px solid #ff4d6d; }
+    
+    .letter-box { width: 95%; max-width: 550px; font-size: 17px; line-height: 1.8; overflow-y: auto; max-height: 80vh; background: rgba(20, 20, 20, 0.85); backdrop-filter: blur(15px); padding: 30px; border-radius: 25px; text-align: left; border: 1px solid rgba(255, 77, 109, 0.4); scrollbar-width: none; }
+    .letter-box::-webkit-scrollbar { display: none; }
+    
+    .propose-img { width: 100%; border-radius: 15px; margin-top: 25px; border: 2px solid #ff4d6d; box-shadow: 0 0 15px #ff4d6d; }
+
+    /* SURPRISE SCREEN FIXES */
+    #surprise { gap: 10px; }
+    #finalLoveName { 
+        width: auto; 
+        max-width: 80%; 
+        max-height: 40vh; /* Limits image height to leave room for text */
+        object-fit: contain;
+        display: none; 
+        border-radius: 15px; 
+        box-shadow: 0 0 25px #ff4d6d; 
+        border: 3px solid white; 
+        margin: 10px auto; 
+    }
+    #finalMsg { 
+        font-size: clamp(20px, 6vw, 28px); 
+        color: white; 
+        text-shadow: 0 0 15px #ff4d6d; 
+        font-weight: bold;
+    }
+    
+    .heart { position: fixed; top: -10%; color: #ff4d6d; animation: float linear forwards; z-index: -1; pointer-events: none; }
+    @keyframes float { 
+      to { transform: translateY(110vh) rotate(360deg); } 
+    }
+    
+    .glow-text { font-size: 45px; color: #ff4d6d; text-shadow: 0 0 20px #ff4d6d; margin-bottom: 10px; }
+    .typing { margin-top: 30px; font-size: 20px; color: #ffd6e0; border-right: 3px solid pink; width: 0; white-space: nowrap; overflow: hidden; margin-left: auto; margin-right: auto; animation: typing 5s steps(40) forwards, blink .8s infinite; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
+  </style>
+</head>
+<body>
+
+  <div id="login" class="screen active">
+    <h1 style="margin-bottom: 20px;">🔐 Unlock My Heart ❤️</h1>
+    <input type="password" id="pass" placeholder="Enter password...">
+    <button onclick="checkPass()">Open ❤️</button>
+  </div>
+
+  <div id="story" class="screen">
+    <h1 style="color: #ff4d6d; margin-bottom: 10px;">Happy Birthday My Valentine ❤️</h1>
+    <p id="msg" class="message"></p>
+    <img id="photo" class="story-img">
+  </div>
+
+  <div id="letter" class="screen">
+    <div class="letter-box">
+      <h1 style="text-align: center; color: #ff4d6d;">💌 To My Love</h1><br>
+      Our first call in December… ❤️<br><br>
+      I never imagined that a simple conversation would turn into you becoming my whole world ❤️<br><br>
+      What started as talking… slowly turned into something so rare… so pure…<br><br>
+      A bond that felt like friendship… but meant so much more 💫<br><br>
+      Even today, I don’t know how I said “yes” to you…<br><br>
+      Sometimes I feel like it wasn’t me… it was destiny… it was God bringing us together ✨<br><br>
+      Before you came into my life, love was never something I cared about…<br><br>
+      But now… life without you feels incomplete 💖<br><br>
+      Sometimes I sit quietly and wonder…<br><br>
+      What would I be… who would I be… if you never came into my life?<br><br>
+      There are moments I feel I’m not perfect for you…<br><br>
+      That maybe… I don’t deserve someone like you…<br><br>
+      But then my heart reminds me…<br><br>
+      Love is not about perfection…<br><br>
+      It’s about understanding… holding on… and choosing each other every single day ❤️<br><br>
+      This distance… it hurts sometimes…<br><br>
+      But it also makes us stronger…<br><br>
+      It builds trust, belief, and a love that distance can never break 💞<br><br>
+      I love you in ways I can’t even explain…<br><br>
+      More than words… more than actions… more than anything ❤️<br><br>
+      I’m really sorry… for the times my words hurt you…<br><br>
+      Those moments were never from my heart… just from situations…<br><br>
+      But my heart… it has always been yours 😔<br><br>
+      I miss you… in ways silence can’t express…<br><br>
+      And I’m waiting… for the day I can finally be with you… not in words… but in reality 🫂<br><br>
+      Happy Birthday, my Chinnoda…<br><br>
+      My love… my peace… my forever 🎂❤️
+      
+      <img src="propose_pose.png" class="propose-img" alt="Our Love Pose">
+      <br><br>
+      <button onclick="goToSurprise()" style="display:block; margin: 0 auto;">Click for Surprise 🎁</button>
+    </div>
+  </div>
+
+  <div id="surprise" class="screen">
+    <h1 style="color:#ff4d6d;">🎁 My Forever Gift 🎁</h1>
+    <img id="finalLoveName" src="lovename.png">
+    <button id="giftBtn" onclick="openGift()">Tap To Reveal 💖</button>
+    <p id="finalMsg" class="message"></p>
+  </div>
+
+  <div id="names" class="screen">
+    <h1 class="glow-text">Sharmi ❤️ Tarak</h1>
+    <h2 class="typing">“You are my today, tomorrow & forever...” ✨</h2>
+  </div>
+
+  <audio id="music" loop>
+    <source src="song.mpeg" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const password = "Shatara";
+    
+    const photos = [
+      "black_t.jpeg", "kerala_t.jpeg", "nauty_tara.jpeg", "tara1.jpeg","first pic.jpeg",
+      "Arunachalam pic.jpeg","funny pic.jpeg", "templepic.jpeg"
+    ];
+
+    const messages = [
+      "The first time I saw you... ❤️",
+      "With you, every moment feels like a rare, beautiful discovery. 💖🌴",
+      "Your naughty side makes me smile 😜",
+      "You look so handsome here ✨",
+      "Our meet with God Blessings ❤️",
+      "You became my whole world 💖",
+      "Our bond turned magical ✨",
+      "It was always meant to be ❤️"
+    ];
+
+    function checkPass() {
+      const input = document.getElementById("pass").value;
+      if (input === password) {
+        document.getElementById("login").classList.remove("active");
+        document.getElementById("story").classList.add("active");
+        const audio = document.getElementById("music");
+        audio.play().catch(e => console.log("Audio blocked"));
+        startStory();
+      } else {
+        alert("Wrong Password! Hint: The combined name 😜");
+      }
+    }
+
+    let i = 0;
+    function startStory() {
+      const msg = document.getElementById("msg");
+      const img = document.getElementById("photo");
+      function showNext() {
+        msg.classList.remove("show");
+        img.style.opacity = "0";
+        setTimeout(() => {
+          msg.innerHTML = messages[i];
+          msg.classList.add("show");
+          img.src = encodeURI(photos[i]);
+          img.style.display = "block";
+          img.style.opacity = "1";
+          img.style.transition = "opacity 1s";
+          i++;
+          if (i < messages.length) {
+            setTimeout(showNext, 4500);
+          } else {
+            setTimeout(() => {
+              document.getElementById("story").classList.remove("active");
+              document.getElementById("letter").classList.add("active");
+            }, 5000);
+          }
+        }, 800);
+      }
+      showNext();
+    }
+
+    function goToSurprise() {
+      document.getElementById("letter").classList.remove("active");
+      document.getElementById("surprise").classList.add("active");
+    }
+
+    function openGift() {
+      document.getElementById("giftBtn").style.display = "none";
+      document.getElementById("finalLoveName").style.display = "block";
+      const msg = document.getElementById("finalMsg");
+      msg.innerHTML = "Happy Birthday Abbai! 🎂✨<br>Sharmi + Tara = Shatara ❤️";
+      msg.classList.add("show");
+      for (let j = 0; j < 60; j++) {
+        setTimeout(() => createHeart(true), j * 50);
+      }
+      setTimeout(() => {
+        document.getElementById("surprise").classList.remove("active");
+        document.getElementById("names").classList.add("active");
+      }, 10000);
+    }
+
+    function createHeart(isExplosion = false) {
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.innerHTML = ["💖", "❤️", "✨", "💕"][Math.floor(Math.random() * 4)];
+      h.style.left = (Math.random() * 100) + "vw";
+      const size = isExplosion ? (20 + Math.random() * 30) : (10 + Math.random() * 20);
+      h.style.fontSize = size + "px";
+      const duration = isExplosion ? (1 + Math.random() * 2) : (4 + Math.random() * 5);
+      h.style.animationDuration = duration + "s";
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), duration * 1000);
+    }
+    
+    setInterval(() => createHeart(), 400);
+  </script>
+</body>
+</html>
